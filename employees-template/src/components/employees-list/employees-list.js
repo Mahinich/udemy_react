@@ -2,12 +2,18 @@ import './employees-list.css';
 
 import EmployeesListItem from '../employees-list-item/employees-list-item';
 
-function EmpolyeesList() {
+function EmpolyeesList(props) {
+
+  let employees = props.emp_list.map(item => {
+    return (
+      <EmployeesListItem {...item}/>
+    )
+  })
+
   return(
     <ul className="employees-list list-group">
-      <EmployeesListItem/>
-      <EmployeesListItem/>
-      <EmployeesListItem/>
+      {/* <EmployeesListItem name={props.emp_list.name} salary={props.emp_list.salary}/> */}
+      {employees}
     </ul>
   );
 }
