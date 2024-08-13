@@ -3,10 +3,14 @@ import './employees-list.css';
 import EmployeesListItem from '../employees-list-item/employees-list-item';
 let keyCount = 0;
 
-function EmpolyeesList(props) {
-  let employees = props.emp_list.map(item => {
+function EmpolyeesList({emp_list}) {
+
+  
+  let employees = emp_list.map(item => {
+  const {id, ...itemProps} = item;
+    
     return (
-      <EmployeesListItem key = {keyCount} {...item}/>
+      <EmployeesListItem key = {id} {...itemProps}/>
     )
   })
 
