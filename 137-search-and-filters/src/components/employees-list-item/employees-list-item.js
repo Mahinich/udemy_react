@@ -6,6 +6,11 @@ class EmployeesListItem extends Component {
     super(props);
   }
 
+  handleSalaryChange = (e) => {
+    const newSalary = +e.target.value;
+    this.props.updateSalary(newSalary);
+  }
+  
   render () {
     const {name, salary, onDelete, increase, rise, onToggleIncrease, onToggleRise} = this.props;  
     let classNames = 'list-group-item d-flex justify-content-between';
@@ -21,7 +26,11 @@ class EmployeesListItem extends Component {
     return(
       <li className={classNames}>
         <span className="list-group-item-label" onClick={onToggleRise}>{name}</span>
-        <input type="text" className="list-group-item-input" defaultValue={`${salary}$`}/>
+        <input 
+          type="text" 
+          className="list-group-item-input" 
+          defaultValue={`${salary}$`}
+          onChange={this.handleSalaryChange}/>
         <div className='d-flex justify-content-center align-items-center'>
           <button type="button" className="btn-cookie btn-sm " onClick = {onToggleIncrease}>
             <i className="fas fa-cookie"></i>

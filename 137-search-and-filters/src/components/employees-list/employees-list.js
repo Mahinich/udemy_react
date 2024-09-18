@@ -2,7 +2,7 @@ import './employees-list.css';
 
 import EmployeesListItem from '../employees-list-item/employees-list-item';
 
-function EmpolyeesList({emp_list, onDelete, onToggleIncrease, onToggleRise, salaryStateChange}) {
+function EmpolyeesList({emp_list, onDelete, onToggleIncrease, onToggleRise, updateSalary}) {
   
   let employees = emp_list.map(item => {
   const {id, name, increase, rise, salary} = item;
@@ -17,6 +17,7 @@ function EmpolyeesList({emp_list, onDelete, onToggleIncrease, onToggleRise, sala
         onDelete = {() => onDelete(id)}
         onToggleIncrease = {() => onToggleIncrease(id)}
         onToggleRise = {() => onToggleRise(id)}
+        updateSalary={(newSalary) => updateSalary(id, newSalary)}
       />
     )
   })
